@@ -64,6 +64,17 @@ Rails.application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default_url_options = { host: 'ec2-54-235-206-118.compute-1.amazonaws.com', port: 5432 }
+  config.assets.initialize_on_precompile = false
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :enable_starttls_auto => true,
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :domain => 'smtp.gmail.com',
+    :user_name => "twinklestaryoshino@gmail.com", #ご自身のgmailアドレス
+    :password => "twinklestar1013", #ご自身のgmailアドレスのパスワード
+    :authentication => 'login'
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
